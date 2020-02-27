@@ -60,9 +60,7 @@ var triviaQuestions = [
         correctAnswer: "3"
     }
     ];
-
     // gamePlay functions
-
     function startGame(){
         $(".startButton").remove();
         rightAnswers = 0;
@@ -70,10 +68,10 @@ var triviaQuestions = [
         questionsLeft = 0;
         playGame();
     }
-
     function playGame(){
-
-    };
+        $("#question").text(triviaQuestions[0].question);
+        $(".answers").html(triviaQuestions[0].options);
+    }
 
     $(".startButton").on("click", function(){
     //     $(".main-content").text(triviaQuestions[1].question)
