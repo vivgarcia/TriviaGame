@@ -72,7 +72,7 @@ var triviaQuestions = [
     }
     //displays questions and answers in main-cotent
     function displayQuestions(){
-        $("#question").text(triviaQuestions[indexQA].question);
+        $("#question").html("<h2>" + triviaQuestions[indexQA].question + "</h2>");
         var answerChoices = triviaQuestions[indexQA].options;
         for(var i = 0; i < triviaQuestions[indexQA].options.length; i++){
             $("#answers").append("<br><input type=radio name='possible-answers'> " + answerChoices[i] + "</input><br>");
