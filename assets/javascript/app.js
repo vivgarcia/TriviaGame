@@ -75,7 +75,8 @@ var triviaQuestions = [
         $("#question").html("<h2>" + triviaQuestions[indexQA].question + "</h2>");
         var answerChoices = triviaQuestions[indexQA].options;
         for(var i = 0; i < triviaQuestions[indexQA].options.length; i++){
-            $("#answers").append("<br><input type=radio name='possible-answers'> " + answerChoices[i] + "</input><br>");
+            // $("#answers").append("<br><input type=radio name='possible-answers'> " + answerChoices[i] + "</input><br>");
+            $("#answers").append("<button class='optionButton'> " + answerChoices[i] + "</button><br>");
         }
         run();
     }
@@ -102,5 +103,4 @@ var triviaQuestions = [
     $(".startButton").on("click", function(){
         startGame();
     });
-
 });

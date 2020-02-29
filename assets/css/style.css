@@ -33,8 +33,9 @@ h3{
     color: #000;
     font-size: 20px;
     font-weight: 900;
+    height: 90%;
 }
-button {
+.startButton {
     padding: 30px 200px;
     border-radius: 18px;
     background-color: #48b139;
@@ -46,4 +47,14 @@ button {
 }
 button:hover{
     background-color: #409F33;
+}
+.optionButton{
+    background-color: #48b139;
+    padding: 15px;
+    width: 70%;
+    border: 1px solid #48b139;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px;
 }
