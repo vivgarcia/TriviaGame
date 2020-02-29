@@ -18,6 +18,9 @@ h1{
 h3{
     font-family: 'Roboto Slab', serif;
     font-size: 24px;
+    background-color: #48b139;
+    color: #fff;
+    padding: 5px;
 }
 .main-content{
     background-color: rgba( 255, 255, 255, 0.5);

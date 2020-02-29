@@ -68,10 +68,18 @@ var triviaQuestions = [
         rightAnswers = 0;
         wrongAnswers = 0;
         questionsLeft = 0;
-        $("#question").text(triviaQuestions[0].question);
-        $(".answers").html(triviaQuestions[0].options);
+        displayQuestions();
+    }
+    //displays questions and answers in main-cotent
+    function displayQuestions(){
+        $("#question").text(triviaQuestions[indexQA].question);
+        var answerChoices = triviaQuestions[indexQA].options;
+        for(var i = 0; i < triviaQuestions[indexQA].options.length; i++){
+            $("#answers").append("<br><input type=radio name='possible-answers'> " + answerChoices[i] + "</input><br>");
+        }
         run();
     }
+    
     //runs timer
     function run(){
         clearInterval(intervalID);
