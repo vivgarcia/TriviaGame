@@ -60,7 +60,7 @@ var triviaQuestions = [
     var intervalID;
     var indexQA = 0;
     var answered = false;
-    var correct;
+    var userGuess;
     // gamePlay functions
     //when button is pressed, startGame beings gamePlay
     function startGame(){
@@ -75,11 +75,13 @@ var triviaQuestions = [
         $("#question").html("<h2>" + triviaQuestions[indexQA].question + "</h2>");
         var answerChoices = triviaQuestions[indexQA].options;
         for(var i = 0; i < triviaQuestions[indexQA].options.length; i++){
-            // $("#answers").append("<br><input type=radio name='possible-answers'> " + answerChoices[i] + "</input><br>");
             $("#answers").append("<button class='optionButton'> " + answerChoices[i] + "</button><br>");
+
+            // $(".optionButton").attr("data-guessvalue", triviaQuestions[indexQA]);
         }
         run();
     }
+    //checks for correct answer
     
     //runs timer
     function run(){
