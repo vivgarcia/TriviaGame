@@ -83,15 +83,17 @@ var triviaQuestions = [
     $(document).on("click", ".optionButton", function(){
         var correct = triviaQuestions[indexQA].correctAnswer;
         if($(this).attr("data-guessvalue") === correct){
+            stop();
             rightAnswers++;
-            $(".main-content").html("<h4>Correct!</h4>");
+            // $("#question").html("<h4>Correct!</h4><br><br>");
+            // $("#answers").html(" ");
             console.log("Correct answers: " + rightAnswers);
-            
         } else{
+            stop();
             wrongAnswers++;
             console.log("Wrong answers: " + wrongAnswers);
         }
-    })
+    });
     //runs timer
     function run(){
         clearInterval(intervalID);
