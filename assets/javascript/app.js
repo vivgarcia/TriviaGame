@@ -9,8 +9,8 @@ var triviaQuestions = [
             "Wisconsin", 
             "California"
         ],
-        correctAnswer: "0"
-    },
+        correctAnswer: "0",
+        },
     {
         question: "What is the name of Ron Swanson's saxophone playing alter-ego?",
         options: [
@@ -19,8 +19,8 @@ var triviaQuestions = [
             "Duke Silver", 
             "Sammy Tunes"
         ],
-        correctAnswer: "2"
-    },
+        correctAnswer: "2",
+        },
     {
         question: "What was April Ludgate's job position at the Pawnee Parks Department initially?",
         options: [
@@ -29,8 +29,8 @@ var triviaQuestions = [
             "Rapid Animal Extermination Crew", 
             "Secretary"
         ],
-        correctAnswer: "1"
-    },
+        correctAnswer: "1",
+        },
     {
         question: "What is the name of the rival town, that Leslie Knope was born in?",
         options: [
@@ -39,8 +39,8 @@ var triviaQuestions = [
             "Eagleton", 
             "Indianapolis"
         ],
-        correctAnswer: "2"
-    },
+        correctAnswer: "2",
+        },
     {
         question: "Why was Ben Wyatt famous for before moving to Pawnee?",
         options: [
@@ -52,6 +52,7 @@ var triviaQuestions = [
         correctAnswer: "3"
     }
     ];
+    
     //define variables
     var timeLeft = 16;
     var wrongAnswers = 0;
@@ -74,15 +75,23 @@ var triviaQuestions = [
     function displayQuestions(){
         $("#question").html("<h2>" + triviaQuestions[indexQA].question + "</h2>");
         var answerChoices = triviaQuestions[indexQA].options;
-        for(var i = 0; i < triviaQuestions[indexQA].options.length; i++){
-            $("#answers").append("<button class='optionButton'> " + answerChoices[i] + "</button><br>");
-
-            // $(".optionButton").attr("data-guessvalue", triviaQuestions[indexQA]);
+        for(var i = 0; i < answerChoices.length; i++){
+            let answers = $("<button>").text(answerChoices[i]).attr("data-guessvalue", i).addClass("optionButton");
+            $("#answers").append(answers);
         }
         run();
     }
-    //checks for correct answer
-    
+    $(document).on("click", ".optionButton", function(){
+        var correct = triviaQuestions[indexQA].correctAnswer;
+        if($(this).attr("data-guessvalue") === correct){
+            rightAnswers++;
+            $(".main-content").empty();
+            console.log(rightAnswers);
+        } else{
+            wrongAnswers++;
+            console.log(wrongAnswers);
+        }
+    })
     //runs timer
     function run(){
         clearInterval(intervalID);
