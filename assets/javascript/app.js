@@ -57,7 +57,6 @@ var triviaQuestions = [
     var timeLeft = 16;
     var wrongAnswers = 0;
     var rightAnswers = 0;
-    var questionsLeft = 0;
     var intervalID;
     var indexQA = 0;
     var answered = false;
@@ -85,11 +84,12 @@ var triviaQuestions = [
         var correct = triviaQuestions[indexQA].correctAnswer;
         if($(this).attr("data-guessvalue") === correct){
             rightAnswers++;
-            $(".main-content").empty();
-            console.log(rightAnswers);
+            $(".main-content").html("<h4>Correct!</h4>");
+            console.log("Correct answers: " + rightAnswers);
+            
         } else{
             wrongAnswers++;
-            console.log(wrongAnswers);
+            console.log("Wrong answers: " + wrongAnswers);
         }
     })
     //runs timer
