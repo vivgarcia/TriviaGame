@@ -78,24 +78,26 @@ var triviaQuestions = [
             let answers = $("<button>").text(answerChoices[i]).attr("data-guessvalue", i).addClass("optionButton");
             $("#answers").append(answers);
         }
-        run();
+        runTimer();
     }
     $(document).on("click", ".optionButton", function(){
         var correct = triviaQuestions[indexQA].correctAnswer;
         if($(this).attr("data-guessvalue") === correct){
             stop();
             rightAnswers++;
-            // $("#question").html("<h4>Correct!</h4><br><br>");
-            // $("#answers").html(" ");
             console.log("Correct answers: " + rightAnswers);
         } else{
             stop();
             wrongAnswers++;
             console.log("Wrong answers: " + wrongAnswers);
         }
+        $("#question").empty();
+        $("#answers").empty();
+        indexQA++; 
+        displayQuestions();
     });
     //runs timer
-    function run(){
+    function runTimer(){
         clearInterval(intervalID);
         intervalID = setInterval(decrement, 1000);
     }
