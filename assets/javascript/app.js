@@ -54,7 +54,7 @@ var triviaQuestions = [
     ];
     
     //define variables
-    var timeLeft = 16;
+    var timeLeft = 61;
     var wrongAnswers = 0;
     var rightAnswers = 0;
     var intervalID;
@@ -83,11 +83,11 @@ var triviaQuestions = [
     $(document).on("click", ".optionButton", function(){
         var correct = triviaQuestions[indexQA].correctAnswer;
         if($(this).attr("data-guessvalue") === correct){
-            stop();
+            stopTimer();
             rightAnswers++;
             console.log("Correct answers: " + rightAnswers);
         } else{
-            stop();
+            stopTimer();
             wrongAnswers++;
             console.log("Wrong answers: " + wrongAnswers);
         }
@@ -95,6 +95,9 @@ var triviaQuestions = [
         $("#answers").empty();
         indexQA++; 
         displayQuestions();
+        if(indexQA){
+            alert("no more questions")
+        }
     });
     //runs timer
     function runTimer(){
@@ -106,12 +109,12 @@ var triviaQuestions = [
         timeLeft--;
         $(".timeLeft").html("<h3> Time Left: " + timeLeft + "</h3>");
         if(timeLeft === 0){
-            stop();
+            stopTimer();
             $(".timeLeft").html("<h3>You ran out of time!</h3>");
         }
     }
     //stops timer and clears interval
-    function stop(){
+    function stopTimer(){
         clearInterval(intervalID);
     }
     //press button to play
