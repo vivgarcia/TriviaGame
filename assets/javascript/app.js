@@ -52,7 +52,6 @@ var triviaQuestions = [
         correctAnswer: "3"
     }
     ];
-    
     //define variables
     var timeLeft = 31;
     var wrongAnswers = 0;
@@ -67,6 +66,7 @@ var triviaQuestions = [
         wrongAnswers = 0;
         questionsLeft = 0;
         displayQuestions();
+        unansweredQuestions = 0;
     }
     //displays questions and answers in main-cotent
     function displayQuestions(){
@@ -85,10 +85,14 @@ var triviaQuestions = [
             stopTimer();
             rightAnswers++;
             console.log("Correct answers: " + rightAnswers);
+            unansweredQuestions++;
+            answered = true;
         } else{
             stopTimer();
             wrongAnswers++;
             console.log("Wrong answers: " + wrongAnswers);
+            unansweredQuestions++;
+            answered = true;
         }
         $("#question").empty();
         $("#answers").empty();
@@ -108,7 +112,7 @@ var triviaQuestions = [
             stopTimer();
             $("#question").empty();
             $("#answers").empty();
-            $(".main-content").html("<h2>You ran out of time!</h2>");
+            $(".timeLeft").html("<h2>You ran out of time!</h2>");
         }
     }
     //stops timer and clears interval
