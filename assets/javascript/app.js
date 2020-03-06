@@ -53,7 +53,7 @@ var triviaQuestions = [
     }
     ];
     //define variables
-    var timeLeft = 31;
+    var timeLeft = 46;
     var wrongAnswers = 0;
     var rightAnswers = 0;
     var intervalID;
@@ -130,7 +130,7 @@ var triviaQuestions = [
             stopTimer();
             $("#question").empty();
             $("#answers").empty();
-            $(".timeLeft").html("<h2>You ran out of time!</h2>");
+            $(".timeLeft").html("<h3>You ran out of time!</h3>");
             gameOver();
         }
     }
