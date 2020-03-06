@@ -53,7 +53,7 @@ var triviaQuestions = [
     }
     ];
     //define variables
-    var timeLeft = 31;
+    var timeLeft = 6;
     var wrongAnswers = 0;
     var rightAnswers = 0;
     var intervalID;
@@ -66,7 +66,6 @@ var triviaQuestions = [
         wrongAnswers = 0;
         questionsLeft = 0;
         displayQuestions();
-        unansweredQuestions = 0;
     }
     //displays questions and answers in main-cotent
     function displayQuestions(){
@@ -81,24 +80,28 @@ var triviaQuestions = [
     //gives functionality to each answer button
     $(document).on("click", ".optionButton", function(){
         var correct = triviaQuestions[indexQA].correctAnswer;
+        $("#question").empty();
+        $("#answers").empty();
         if($(this).attr("data-guessvalue") === correct){
             stopTimer();
             rightAnswers++;
             console.log("Correct answers: " + rightAnswers);
-            unansweredQuestions++;
-            answered = true;
+            gameOver();
         } else{
             stopTimer();
             wrongAnswers++;
             console.log("Wrong answers: " + wrongAnswers);
-            unansweredQuestions++;
-            answered = true;
+            gameOver();
         }
-        $("#question").empty();
-        $("#answers").empty();
         indexQA++; 
         displayQuestions();
     });
+    // checks if triviaQuestions array is complete, executes gamePlay functions
+    function gameOver(){
+        if(indexQA === triviaQuestions.length -1){
+            $(".main-content").html("<h1>You won</h1>");
+        }
+    }
     //runs timer
     function runTimer(){
         clearInterval(intervalID);
@@ -113,6 +116,7 @@ var triviaQuestions = [
             $("#question").empty();
             $("#answers").empty();
             $(".timeLeft").html("<h2>You ran out of time!</h2>");
+            gameOver();
         }
     }
     //stops timer and clears interval
