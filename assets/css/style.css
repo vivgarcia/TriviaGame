@@ -58,3 +58,12 @@ button:hover{
     font-size: 18px;
     margin: 10px;
 }
+.resetButton{
+    background-color: #48b139;
+    padding: 15px;
+    border: 1px solid #48b139;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 18px;
+    margin: 10px;
+}

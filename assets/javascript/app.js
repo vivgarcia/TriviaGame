@@ -99,9 +99,24 @@ var triviaQuestions = [
     // checks if triviaQuestions array is complete, executes gamePlay functions
     function gameOver(){
         if(indexQA === triviaQuestions.length -1){
-            $(".main-content").html("<h1>Game Over!</h1><br><p>You had " + timeLeft + " seconds left.</p><br><p>You got " + rightAnswers + " questions right.</p><br><p>You got " + wrongAnswers + " questions wrong.</p><br>");
+            var newDiv = $("<div class='newDiv'>");
+            newDiv.html("<h1>Game Over!</h1><br><p>You had " + timeLeft + " seconds left.</p><br><p>You got " + rightAnswers + " questions right.</p><br><p>You got " + wrongAnswers + " questions wrong.</p><br>");
+            var resetButton = $("<button class='resetButton'>");
+            resetButton.text("reset");
+            $(".main-content").append(newDiv);
+            $(".main-content").append(resetButton);
         }
     }
+    //reset button
+    $(document).on("click", ".resetButton", function(){
+        rightAnswers = 0;
+        wrongAnswers = 0;
+        timeLeft = 31;
+        indexQA = 0;
+        $(".newDiv").remove();
+        $(".resetButton").remove();
+        displayQuestions();
+    });
     //runs timer
     function runTimer(){
         clearInterval(intervalID);
