@@ -53,7 +53,7 @@ var triviaQuestions = [
     }
     ];
     //define variables
-    var timeLeft = 6;
+    var timeLeft = 31;
     var wrongAnswers = 0;
     var rightAnswers = 0;
     var intervalID;
@@ -99,7 +99,7 @@ var triviaQuestions = [
     // checks if triviaQuestions array is complete, executes gamePlay functions
     function gameOver(){
         if(indexQA === triviaQuestions.length -1){
-            $(".main-content").html("<h1>You won</h1>");
+            $(".main-content").html("<h1>Game Over!</h1><br><p>You had " + timeLeft + " seconds left.</p><br><p>You got " + rightAnswers + " questions right.</p><br><p>You got " + wrongAnswers + " questions wrong.</p><br>");
         }
     }
     //runs timer
