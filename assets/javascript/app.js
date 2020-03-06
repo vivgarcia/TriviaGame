@@ -105,7 +105,7 @@ var triviaQuestions = [
             resetButton.text("reset");
             $(".main-content").append(newDiv);
             $(".main-content").append(resetButton);
-        } else{
+        } else if(timeLeft === 0){
             var newDiv = $("<div class='newDiv'>");
             newDiv.html("<h1>Game Over!</h1><br><p>You had " + timeLeft + " seconds left.</p><br><p>You got " + rightAnswers + " questions right.</p><br><p>You got " + wrongAnswers + " questions wrong.</p><br>");
             var resetButton = $("<button class='resetButton'>");
